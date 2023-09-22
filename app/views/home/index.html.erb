@@ -1,0 +1,84 @@
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag "store1.png" %>
+        <div class="container">
+          <div class="carousel-caption text-left">
+            <h1>Welcome</h1>
+            <p>Sweet City Candy has all the candy and chocolate <br>you loved as a kid and can't find anymore.</p>
+            <p><a class="btn btn-lg btn-light" href="#" role="button">Shop Now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "lol.jpg" %>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Get 10% off</h1>
+            <p>Signup today we will give you 10% off</p>
+            <p><a class="btn btn-lg btn-light" href="#" role="button">Signup</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item  carousel-item-left">
+        <%= image_tag "chocolate.jpg" %>
+        <div class="container">
+          <div class="carousel-caption text-right">
+            <h1>Sweet City Candy</h1>
+            <p>1989 At The Forks Winnipeg, Canada</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div id="gallery">
+        <%=render partial: 'shared/gallery3'%>
+        <div class="container">
+            <div class="row featurette">
+              <div class="col-md-7">
+                <h2 class="featurette-heading">Gift Baskets<span class="text-muted">It’ll blow your mind.</span></h2>
+                <p class="lead">Great gifts in any seasons. Create your own basket now <a class="btn btn-outline-secondary" href="#">See More</a></p>
+              </div>
+              <div class="col-md-5">
+                    <%= image_tag "gift_basket.png" %>
+              </div>
+            </div>
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2" style="text-align:right;">
+              <h2 class="featurette-heading">Local Products <span class="text-muted">in Manitoba</span></h2>
+              <p class="lead">Netural and different favors  <a class="btn btn-outline-secondary" href="#">See More</a></p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <%= image_tag "honey.png" %>
+            </div>
+            </div>
+        </div>
+</div>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 text-center" id="site">
+  <div class="col-md-5 p-lg-5 mx-auto my-5" style="background-color:white;">
+    <h1 class="display-4 font-weight-normal">Candy Time</h1>
+    <p class="lead font-weight-normal">We have all the candy and chocolate you loved as a kid and can't find anymore. The owner, Stella, is the queen of sweets with an array of everything chocolate, taffy, jellybean, and sugar-filled. Venture to the back of the store to find sauces, jams, and other deliciousness made right here in Manitoba.</p>
+    <a class="btn btn-outline-secondary" href="#">Shop Now</a>
+  </div>
+  <div class="product-device shadow-sm d-none d-md-block"></div>
+  <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+
+
+

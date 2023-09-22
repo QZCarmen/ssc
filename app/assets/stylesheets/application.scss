@@ -1,0 +1,757 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+
+
+ @import "bootstrap";
+ @import 'bootstrap-multiselect';
+
+ .card-text a{
+   color: black;
+ }
+
+//  search
+ .search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.wrap{
+  margin-left: 100px;
+}
+
+.searchTerm,#search_name {
+  width: 200px;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 35px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 35px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+a .material-icons{
+  color: pink !important;
+}
+
+
+ /*
+ * Main theme
+*/
+
+
+footer {
+  min-height: 100px;
+
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+  .row {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.banner{
+  background-color: pink;
+  padding: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  height: 100%;
+}
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+.dropdown {
+  &:hover {
+    > .dropdown-menu {
+      display: block;
+      border: 1px solid #f0f0f0;
+      border-top:none ;
+    }
+  }
+}
+.megamenu {
+  position: static;
+  .dropdown-menu {
+  border: none;
+  width: 100%;
+
+  }
+}
+.dropdown a{
+  color: black;
+  text-decoration: none;
+}
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #f0f0f0;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    background-color: #f0f0f0 !important;
+
+}
+#footer h6{
+	padding-left: 10px;
+    border-left: 3px solid #333;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:#333;
+}
+#footer a {
+    color: #333;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#333;
+}
+#footer ul.social li a:hover{
+	color:#333;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h6 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+}
+
+
+
+/* Carousel base class */
+#myCarousel .carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+#myCarousel .carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+#myCarousel .carousel-item {
+  height: 32rem;
+}
+#myCarousel .carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+
+// gallery
+@media (min-width: 768px) {
+  .carousel-multi-item-2 .col-md-3 {
+  float: left;
+  width: 25%;
+  max-width: 100%; } }
+
+  .carousel-multi-item-2 .card img {
+  border-radius: 2px; }
+
+  #galleryCollection .card img{
+    width: 286px;
+    height: 180px;
+  }
+
+  #galleryCollection{
+    height: 100%;
+    padding: 5px;
+    margin: 2em;
+  }
+  #galleryCollection .card-body{
+    color:  #999999;
+  }
+
+  #galleryCollection h3{
+   font-weight:bold;
+   color:#FFB301;
+  }
+
+
+
+  #gallery{
+    background-image: url(pink2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 8px;
+  }
+
+
+#site{
+  background-image: url(lpl.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.7;
+}
+
+
+
+// product
+
+ul.product_list {
+  display: block;
+  float: left;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.product_grid a {
+  text-decoration: none;
+}
+.product_item {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  position: relative;
+}
+
+.product_image {
+  position: relative;
+  overflow: hidden;
+}
+.product_image a {
+  display: block;
+}
+.product_image img {
+  display: block;
+  -webkit-transition: all .35s ease-in-out;
+  -moz-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
+}
+.product_image img:hover {
+  -o-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+}
+.product_image:hover .product_buttons {
+  bottom: 0;
+}
+.product_buttons {
+  position: absolute;
+  bottom: -40%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  -webkit-transition: all .35s ease;
+  -moz-transition: all .35s ease;
+  transition: all .35s ease;
+}
+
+.quick_view h6 {
+  background: pink;
+  margin: 6px 0 0 0;
+  text-align: center;
+  color: #fff;
+  padding: 8px 0;
+  font-size: 1em;
+  font-weight: normal;
+}
+.quick_view h6:before {
+  content: "\f00e";
+  font-family: FontAwesome;
+  padding: 0 5px;
+}
+.product_title {
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.product_price a {
+  color: #000;
+}
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+  ul.product_list {
+    margin: 0;
+  }
+  .product_item {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .product_image {
+    height: 100px;
+    float: left;
+    width: 100px;
+  }
+  .product_image .product_buttons {
+    display: none;
+  }
+  .product_title h6 {
+    margin: auto;
+    line-height: 1;
+  }
+  .product_price span {
+    line-height: 1;
+  }
+
+  .product_values .product_buttons {
+    position: relative;
+    text-align: left;
+    float: left;
+    margin-top: 7px;
+  }
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+  ul.product_list {
+    margin: 1%;
+  }
+  .product_item {
+    width: 49%;
+    margin: 0;
+  }
+  .product_image {
+    height: 300px;
+    float: left;
+    width: 100%;
+    text-align: center;
+  }
+  .product_image img {
+    max-height: 100%;
+    display: inline-block;
+  }
+  .product_title h6 {
+    line-height: 1;
+    padding: 10px 0 0;
+    text-align: center;
+}
+  .product_image .product_buttons {
+    display: block;
+  }
+  .product_price {
+    float: left;
+    text-align: center;
+    width: 100%;
+  }
+  .product_values .product_buttons {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 678px) {
+  .product_item {
+    width: 32.5%;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .product_item {
+    width: 24.25%;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  .product_item {
+    width: 19.5%;
+  }
+}
+
+
+
+
+// check box
+.multiselect-container a{
+  color: black !important;
+}
+
+.multiselect-selected input[type=checkbox]:checked{
+  background: pink !important;
+}
+
+.multiselect-container{
+  border-radius: 0px;
+  width: max-content;
+}
+
+button.multiselect.dropdown-toggle.btn.btn-default {
+  border-radius: 0px;
+  background-color: white;
+  border: 1px solid #f0f0f0;
+  margin-right: 10px;
+}
+
+
+
+.sort select{
+  border: none !important;
+  width:100px;
+  border-radius: 0px !important;
+  font-weight: lighter;
+  font-size: 80%;
+}
+
+.sort label{
+  font-weight: lighter;
+  font-size: 80%;
+}
+
+
+.submenu{
+  min-height:150px;
+  margin-top:150px;
+  margin-left:30px;
+  margin-right:30px;
+  background-image: url(pink4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom:1px solid #F0F0F0;
+  padding-top: 20px;
+}
+
+ .list-inline-item{
+  text-transform: uppercase;
+  font-size: 12px;
+  border-right: 1px solid black;
+  padding-right: 3px;
+  margin: 0px;
+}
+.list-inline-item:first-of-type{
+  padding-left: 0px !important;
+}
+.list-inline-item:last-of-type{
+  border-right: none !important;
+}
+
+ .list-inline-item a{
+  color: black;
+}
+
+
+.filter{
+  padding:0px 20px;
+}
+
+
+
+.products{
+  overflow:auto;
+  padding:20px;
+}
+
+.shopByDiv,.details{
+  margin-top: 150px;
+  min-height: max-content;
+  padding:0px 30px ;
+}
+
+/* Container holding the image and the text */
+.shopBy-item {
+  position: relative;
+  text-align: center;
+}
+
+
+
+/* Centered text */
+.centered {
+  position: absolute;
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.centered a {
+color: black;
+}
+
+
+// shopby
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+
+
+
+
+
+
+.shopBy {
+	display: flex;
+	flex-wrap: wrap;
+	/* Compensate for excess margin on outer gallery flex items */
+	margin: -1rem -1rem;
+}
+
+.shopBy-item {
+	/* Minimum width of 24rem and grow to fit available space */
+	flex: 1 0 12rem;
+	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+	margin: 1rem;
+	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
+
+.shopBy-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  transition: transform 400ms ease-out;
+  opacity: 0.5;
+
+}
+
+.shopBy-image:hover {
+	transform: scale(1.15);
+}
+
+.details-image{
+  width: 100%;
+
+}
+
+.details_item img{
+  width: 50px;
+  height: 50px;
+}
+.details{
+  text-transform: uppercase;
+}
+.details a,.details_item a{
+  color: #00B4CC;
+}
+
+.details_description{
+  height: 150px;
+}
+
+
+
+ .details_btn button,.details_quantity select{
+  width: 130px;
+  background-color: #00B4CC;
+  color: #fff;
+  border-radius: 0px;
+ }
+
+ .details_attr {
+   height: 70px;
+ }
+
+ //modal
+ .modal-header{
+   border-bottom: none !important;
+ }
+
+ .hidden{
+   display: none;
+ }
+
+
+ .shoppingCart{
+   margin-top: 150px;
+   padding-left: 30px;
+   padding-right:30 px;
+ }
+
+ #shoppingList .card-header,#shoppingSummary .card-header{
+   background-color: #fff;
+   border: none;
+ }
+
+
+ #shoppingSummary .card-body{
+   font-size: 12px;
+ }
+ #shoppingSummary li{
+  list-style: none;
+}
+
+.shopping_item p{
+  font-size: 10px;
+  font-weight: lighter;
+  margin: 0px;
+  padding: 0px;
+}
+
+.shopping_item img{
+  width: 80px;
+  height: 80px;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+#my_account{
+  margin-top: 150px;
+}
+
+.logon input,.logon button{
+  width: 250px;
+  border-radius: 0px;
+}
+
+.logon_bg{
+  background-color: pink;
+}
+
+.lg_bg{
+  background-image: url(lg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.justify-content-end button.multiselect.dropdown-toggle.btn.btn-default{
+  border: none !important;
+  border-radius: 0px !important;
+  background: none;
+  width: max-content;
+  border: none;
+  font-size: 15px;
+}
+
+label[for=filterrific_sorted_by]{
+    margin: 0px;
+    width:max-content;
+    font-size: 15px;
+}

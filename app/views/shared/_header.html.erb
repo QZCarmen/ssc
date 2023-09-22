@@ -1,0 +1,203 @@
+<div class="fixed-top">
+    <div class="text-center banner"><p><span class="material-icons"style="margin:0px;">local_shipping</span>Free Shipping Over $75</p></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm ">
+        <a class="navbar-brand" href="#"> <%= image_tag "logo.png", style: "width:50%;height:50%;padding:0;margin:0;border:none;" %></a>
+      <div id="navbarContent" class="collapse navbar-collapse order-sm-12 order-lg-1">
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a href="/home/index" class="nav-link  text-uppercase">Home</a></li>
+          <!-- Megamenu-->
+          <li class="nav-item dropdown megamenu"><a id="megamenu_brands" href="/brands/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  text-uppercase">Brands</a>
+            <div aria-labelledby="megamenu_brands" class="dropdown-menu p-0 m-0">
+              <div class="container-fluid">
+                <div class="row bg-white  rounded-0 m-0 shadow-sm">
+                  <div class="col-12">
+                    <div class="p-4">
+                      <div class="row">
+                          <%@alpha2.each do |p,a|%>
+                              <div class="col">
+                                <h6 class=" text-uppercase"><%=p%></h6>
+                                <ul class="list-unstyled">
+                                  <%a.each do |c|%>
+                                      <li class="nav-item">
+                                       <%= link_to c.name,:controller => "/brands", :action => :show ,:id => c.id%>
+                                      </li>
+                                  <%end%>
+                                </ul>
+                                </div>
+                              <%end%>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+            <li class="nav-item dropdown megamenu"><a id="megamenu_categories" href="/categories/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  text-uppercase">Categories</a>
+            <div aria-labelledby="megamenu_categories" class="dropdown-menu  p-0 m-0">
+              <div class="container-fluid">
+                <div class="row bg-white  rounded-0 m-0 shadow-sm">
+                  <div class="col-12">
+                    <div class="p-4">
+                      <div class="row">
+
+                             <%@menu.each do |type|%>
+                                 <div class="col">
+                                    <h6 class=" text-uppercase"><%=type.name%></h6>
+                                      <%if type.categories.count >0%>
+                                          <ul class="list-unstyled">
+                                              <%type.categories.each do |category|%>
+                                              <li class="nav-item">
+                                                  <%= link_to category.name,:controller => "/categories", :action => :show ,:id => category.id%>
+                                                </li>
+                                            <%end%>
+                                      <%end%>
+                                  </div>
+                            <%end%>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown megamenu"><a id="megamenu_collections" href="/collections/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  text-uppercase">Collections</a>
+            <div aria-labelledby="megamenu_collections" class="dropdown-menu  p-0 m-0">
+              <div class="container-fluid">
+                <div class="row bg-white  rounded-0 m-0 shadow-sm">
+                  <div class="col-12">
+                    <div class="p-4">
+                      <div class="row">
+                        <%@alpha.each do |p,a|%>
+                        <div class="col">
+                          <h6 class=" text-uppercase"><%=p%></h6>
+                          <ul class="list-unstyled">
+                            <%a.each do |c|%>
+                              <li class="nav-item">
+                                <%= link_to c.name,:controller => "/collections", :action => :show ,:id => c.id%>
+                              </li>
+                            <%end%>
+                          </ul>
+                          </div>
+                        <%end%>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown megamenu"><a id="megamenu_gifts" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  text-uppercase">Gifts</a>
+            <div aria-labelledby="megamenu_gifts" class="dropdown-menu  p-0 m-0">
+              <div class="container-fluid">
+                <div class="row bg-white  rounded-0 m-0 shadow-sm">
+                  <div class="col-12">
+                    <div class="p-4">
+                      <div class="row">
+                        <div class="col-sm-6 col-lg-3 mb-4">
+                          <h6 class=" text-uppercase">Heading 1</h6>
+                          <ul class="list-unstyled">
+                            <li class="nav-item"><a href="#" class="nav-link text-small pb-0">Unique Features</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-small pb-0 ">Image Responsive</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 mb-4">
+                          <h6 class=" text-uppercase">Heading 2</h6>
+                          <ul class="list-unstyled">
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Unique Features</a></li>
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Image Responsive</a></li>
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 mb-4">
+                          <h6 class=" text-uppercase">Heading 3</h6>
+                          <ul class="list-unstyled">
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Unique Features</a></li>
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Image Responsive</a></li>
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 mb-4">
+                          <h6 class=" text-uppercase">Heading 4</h6>
+                          <ul class="list-unstyled">
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Unique Features</a></li>
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Image Responsive</a></li>
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
+                            <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="" class="nav-link  text-uppercase">Blog</a></li>
+          <li class="nav-item"><a href="" class="nav-link  text-uppercase">Contact</a></li>
+          <li class="nav-item">
+            <div class="wrap">
+                <div class="search">
+                    <%= simple_form_for :search, url:search_index_path, method: "GET" do |f| %>
+                      <%= f.input :name, input_html: {value: ""}, class:"searchTerm",label: false %>
+                      <%= button_tag(type: 'submit', class: "searchButton") do %>
+                        <span class="material-icons">search</span>
+                      <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <% if customer_signed_in? %>
+                <div class="dropdown">
+                  <button class="btn btn-sm dropdown-toggle rounded-0 bg-white" type="button" id="my_account_btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="material-icons">account_circle</span>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="my_account_btn">
+                    <%= link_to "MY ACCOUNT",edit_customer_registration_path,:class => 'btn btn-sm dropdown-item' %>
+                    <%= link_to "LOG OUT", destroy_customer_session_path, method: :delete, :class => 'btn btn-sm dropdown-item'%>
+
+                  </div>
+              </div>
+
+              <%else%>
+                  <div class="dropdown">
+                      <button class="btn btn-sm dropdown-toggle rounded-0 bg-white" type="button" id="my_account_btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="material-icons">account_circle</span>
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="my_account_btn">
+                        <%= link_to 'LOG IN', new_customer_session_path, :class => 'btn btn-sm dropdown-item' %>
+                        <%= link_to 'REGISTER',new_customer_registration_path, :class => 'btn btn-sm dropdown-item'%>
+                      </div>
+                  </div>
+            <%end%>
+
+
+        </li>
+        <li class="nav-item">
+            <a  class="btn btn-sm text-muted" href="/carts/index">MY (<%=@total%>) ITEMS
+            </a>
+        </li>
+
+        </ul>
+      </div>
+      <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler order-md-1">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+    </nav>
+     <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+</div>

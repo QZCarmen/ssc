@@ -1,0 +1,22 @@
+
+
+
+<div class="shopByDiv text-uppercase">
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="/home/index">HOME</a></li>
+        <li class="list-inline-item"><a href="/<%=@p_name%>/index"><%=@p_name%><a></li>
+  </ul>
+</div>
+<div class="container mb-5">
+	<h3 class="heading text-uppercase text-center mb-4">SHOP BY <%=@name%></h3>
+
+	<div class="shopBy mt-4">
+    <%@headers.each do |header|%>
+		<div class="shopBy-item">
+      <%= image_tag(header.image.url,class:"shopBy-image",alt:header.image) %>
+       <div class="centered"> <%= link_to header.name,:controller => "/collections", :action => :show ,:id => header.id%></div>
+		</div>
+    <%end%>
+	</div>
+
+</div>

@@ -1,0 +1,114 @@
+<div class="shoppingCart">
+    <div>
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <%# <a href="/home/index">HOME</a> %>
+            </li>
+        </ul>
+    </div>
+    <div class="text-center">
+        <h3 style="text-transform: uppercase;">SHOPPING CART</h3>
+    </div>
+</div>
+<div class="container pl-5 pr-5">
+    <div class="row p-5 justify-content-center">
+
+      <% if @cart_products.size >0%>
+        <div class="col-sm-6 p-1" id="shoppingList">
+           <% @cart_products.each do |c| %>
+            <div class="card mb-2 shopping_item">
+                <div class="card-header text-right pb-0">
+                    <%= link_to 'X', cart_product_url(c), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-muted" %>
+
+                </div>
+                <div class="card-body pt-0">
+                    <div class="conatiner-fluid">
+                        <div class="row">
+                            <div class="col shopping_img"><%= image_tag(c.product.image.url,class:"details-image",alt:c.product.image) %></div>
+                            <div class="col">
+                                <div class="row">
+                                  <div>
+                                   <h6 class="shopping_item_name"> <%=c.product.name%><h6>
+                                   <p class="shopping_item_barcode"><%=c.product.barcode%></p>
+                                   <p class="shopping_item_link"> <a href="/products/<%=c.product.id%>">VIEW DETAILS</a></p>
+                                   <h6 class="shopping_item_price"> <%=number_to_currency c.product.price * c.quantity%><h6>
+                                   </div>
+                                </div>
+                            </div>
+                            <div class="col p-4">
+                                <div class="row">
+                                    <%= form_for c, url:cart_product_url(c),:html => { :method => :put } do |f|%>
+                                     <div class="form-group row">
+                                      <%= f.label :quantity, 'Qty',class:'col-sm-4 col-form-label col-form-label-sm'%>
+                                      <div class="col-sm-8">
+                                        <%= f.number_field :quantity, value: c.quantity, class: "form-control rounded-0", min: 1, onchange:"this.form.submit();"%>
+                                      </div>
+                                      </div>
+                                    <%end%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+        <div class="col-sm-4 p-1" id="shoppingSummary">
+            <div class="card">
+                <div class="card-header text-center">
+                    SUMMARY
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col text-left">SUBTOTAL</div>
+                            <div class="col text-right"><%= number_to_currency @cart.total_price %></div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-left">ESTIMATED TAX</div>
+                            <div class="col text-right">TBD</div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-left">TOTAL</div>
+                            <div class="col text-right"><%= number_to_currency @cart.total_price %></div>
+                        </div>
+                        <div class="row mt-3 p-3 justify-content-center">
+                            <%= link_to 'CHECK OUT',charges_new_path, class:'btn w-100 rounded-0 text-white', style:"background-color:pink"%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <%else%>
+        <div class="col-sm-6 p-1" id="shoppingList">
+            <p> <a href="/collections/" class="text-muted">CONTINUE SHOPPING</a></p>
+        </div>
+        <div class="col-sm-4 p-1" id="shoppingSummary">
+            <div class="card">
+                <div class="card-header text-center">
+                    SUMMARY
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col text-left">SUBTOTAL</div>
+                            <div class="col text-right">0</div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-left">ESTIMATED TAX</div>
+                            <div class="col text-right">TBD</div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-left">TOTAL</div>
+                            <div class="col text-right">0</div>
+                        </div>
+                        <div class="row mt-3 p-3 justify-content-center">
+                            <button class="btn w-100 rounded-0 text-white" style="background-color:pink" disabled  >CHECK OUT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <%end%>
+    </div>
+</div>

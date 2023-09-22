@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  barcode: MyString
+  description: MyText
+  price: 9.99
+  image: MyString
+  brand: one
+  category: one
+  tag: one
+  collection: one
+  enabled: false
+
+two:
+  name: MyString
+  barcode: MyString
+  description: MyText
+  price: 9.99
+  image: MyString
+  brand: two
+  category: two
+  tag: two
+  collection: two
+  enabled: false

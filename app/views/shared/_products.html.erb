@@ -1,0 +1,85 @@
+
+<div class="products">
+	<div class="product_grid"><%if products.empty?%>
+		<p class="text-center">SORRY, NO RESULTS SFOUND</p><%else%>
+		<ul class="product_list list">
+      <% products.each do |p|%>
+        <li class="product_item">
+          <div class="product_image"><%= link_to image_tag(p.image.url,class:"card-img-top",alt:p.image) ,:controller => "/products", :action => :show ,:id => p.id%>
+            <div class="product_buttons">
+              <div class="quick_view" >
+                <a href="javascript:void(0);"  data-target="#quick_view_<%=p.id%>">
+                  <h6 >Quick View</h6>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="product_values">
+            <div class="product_title">
+              <h6><%=p.name%>
+              </h6>
+            </div>
+            <div class="product_price">
+              <a href="#">
+                <span>$<%=p.price%>
+                </span>
+              </a>
+            </div>
+            <div class="product_barcode hidden"><%=p.barcode%>
+            </div>
+            <div class="product_brand hidden"><%=p.brand.name%>
+            </div>
+          </div>
+          <div class="modal fade" id="quick_view_<%=p.id%>" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                          <%= form_for p, :url => cart_products_path, :html => { :method => :post } do |f|%>
+                            <div class="row">
+
+                                <div class="col-sm"><%= link_to image_tag(p.image.url,class:"card-img-top",alt:p.image) ,:controller => "/products", :action => :show ,:id => p.id%></div>
+                                <div class="col-sm">
+                                    <div class="details_item">
+                                        <div class="details_name mb-0">
+                                            <h6><a href="/products/"+<%=p.id%>><%=p.name%></a></h6>
+                                        </div>
+                                        <div class="details_attr m-0">
+                                            <p class="small m-0">ITEM#<%=p.barcode%></p>
+                                            <p class="small m-0">BRAND:<%=p.brand.name%></p>
+                                        </div>
+                                        <div class="details_order mt-3">
+                                            <div class="details_price"><h4><%=p.price%></h4></div>
+                                            <div class="details_quantity">
+                                                 <%= f.number_field :quantity, value: 1, class: "form-control", id:"product_quantity"+p.id.to_s , min: 1 %>
+                                                  <%= f.hidden_field :product_id, value: p.id,  id:"product_id"+p.id.to_s %>
+                                                <div class="details_btn mt-3"><%= f.submit "Add to Cart", class: "btn"%></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          <%end%>
+                        </div>
+                    </div>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+      <% end%>
+		</ul><%end%>
+	</div>
+
+</div>
+
+<div style="padding-left:30px;padding-right:30px;padding-bottom:15px;">
+ <%= paginate products %>
+</div>

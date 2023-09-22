@@ -1,0 +1,74 @@
+<div class="submenu" >
+    <h3 class="text-center">
+        <%=controller.controller_name.upcase%>:<%=@name.upcase%>
+    </h3>
+    <div class="filter">
+        <%= form_for_filterrific @filterrific do |f| %>
+        <div class="container-fluid">
+          <div class="row">
+              <div class="col-sm-8">
+
+                  <%= f.select(
+                    :with_brand_id,
+                    @filterrific.select_options[:with_brand_id],
+                    { include_hidden: false},
+                    id:"brands_filter",
+                    multiple:"multiple"
+                  ) %>
+
+
+                      <%= f.select(
+                        :with_category_id,
+                        @filterrific.select_options[:with_category_id],
+                        { include_hidden: false },
+                        id:"categories_filter",
+                        multiple:"multiple"
+                      ) %>
+
+
+
+                      <%= f.select(
+                        :with_collection_id,
+                        @filterrific.select_options[:with_collection_id],
+                        { include_hidden: false },
+                        id:"collections_filter",
+                        multiple:"multiple"
+                      ) %>
+
+
+
+                    <%= link_to(
+                    'CLEAR',
+                    reset_filterrific_url,
+                    class:"btn bg-light rounded-0 text-muted"
+                  ) %>
+
+              </div>
+
+              <div class="col-sm-4 d-flex justify-content-end">
+                  <div class="form-group row">
+                      <label for="filterrific_sorted_by" class="p-1" >SORT BY:</label>
+                      <div class="">
+                          <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+                      </div>
+                    </div>
+              </div>
+          </div>
+
+
+
+          </div>
+
+          <%# add an automated spinner to your form when the list is refreshed %>
+          <%= render_filterrific_spinner %>
+        <% end %>
+    </div>
+</div>
+<%= render(
+  partial: 'shared/products',
+  locals: { products: @products }
+) %>
+
+
+
+

@@ -1,0 +1,66 @@
+<div class="details">
+    <div class="container-fluid">
+       <%= form_for @product, :url => cart_products_path, :html => { :method => :post } do |f|%>
+        <div class="row">
+            <div class="col"> </div>
+        </div>
+        <div class="row">
+          <div class="col-sm"><%= image_tag(@product.image.url,class:"details-image",alt:@product.image) %></div>
+          <div class="col-sm">
+              <div class="details_item p-5">
+                  <div class="details_name mb-0">
+                      <h3><%=@product.name%></h3>
+                  </div>
+                  <div class="details_attr m-0">
+                      <p class="small m-0">ITEM#<%=@product.barcode%></p>
+                      <p class="small m-0">
+                          BRAND:
+                          <%= link_to @product.brand.name ,:controller => "/brands", :action => :show ,:id => @product.brand.id%>
+                      </p>
+                       <% if @product.collection.blank? == false%>
+                          <p class="small m-0">
+                              COLLECTION:
+                              <%= link_to @product.collection.name ,:controller => "/collections", :action => :show ,:id => @product.collection.id%>
+                          </p>
+                       <% end %>
+
+                      <%if @product.product_tags.count >0%>
+                          <p class="small m-0">
+                                TAG:
+                                <%@product.tags.each do |tag|%>
+                                     <%= link_to tag.name ,:controller => "/tags", :action => :show ,:id => tag.id%> &nbsp;
+                                <%end%>
+                            </p>
+                        <%end%>
+                  </div>
+                  <div class="details_order mt-3">
+                      <div class="details_price">
+                          <h4>$<%=@product.price%></h4>
+                      </div>
+                      <div class="details_quantity">
+                          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+                      </div>
+                      <div class="details_btn mt-3">
+                        <%= f.hidden_field :product_id, value: @product.id %>
+                        <%= f.submit "Add to Cart", class: "btn",id:"details_add_to_cart" %>
+                      </div>
+                  </div>
+                  <div class="details_description mt-3">
+                      <ul class="nav nav-tabs" id="description_tabs" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="desc-tab" data-toggle="tab" href="#desc_content" role="tab" aria-controls="home" aria-selected="true">DESCRIPTION</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content" id="description_content">
+                        <div class="tab-pane fade show active p-3" id="desc_content" role="tabpanel" aria-labelledby="desc-tab"><p><%=@product.description%></p></div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+        </div>
+
+
+         <%end%>
+      </div>
+</div>

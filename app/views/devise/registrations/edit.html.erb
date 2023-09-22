@@ -1,0 +1,92 @@
+
+ <div class="shoppingCart">
+
+</div>
+
+<div class="container p-5 border mt-2 mb-5 bg-light" >
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+   <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="row">
+        <div class="col-sm bg-white p-5" style="min-height:400px;">
+          <div  style="width:250px; margin:auto;">
+                <h6> PERSONAL INFO </h6>
+                <div class="form-group row">
+                    <%= f.label :first_name, class:"small" %><br />
+                    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" ,class:"form-control rounded-0"%>
+                </div>
+                <div class="form-group row">
+                    <%= f.label :last_name, class:"small" %><br />
+                    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" ,class:"form-control rounded-0"%>
+                </div>
+                <div class="form-group row">
+                    <%= f.label :phone, class:"small" %><br />
+                    <%= f.text_field :phone, autofocus: true, autocomplete: "phone" ,class:"form-control rounded-0"%>
+                </div>
+                  <div class="form-group row">
+                    <%= f.label :address, class:"small" %><br />
+                    <%= f.text_field :address, autofocus: true, autocomplete: "address" ,class:"form-control rounded-0"%>
+                </div>
+                <div class="form-group row">
+                    <%= f.label :postal_code, class:"small" %><br />
+                    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" ,class:"form-control rounded-0"%>
+                </div>
+                <div class="form-group row">
+                    <%= f.label :city, class:"small" %><br />
+                    <%= f.text_field :city, autofocus: true, autocomplete: "city" ,class:"form-control rounded-0"%>
+                </div>
+
+                <div class="form-group row">
+                  <%= f.label :province_id, class:"small" %><br />
+                  <% if current_customer.province_id.blank? %>
+
+                      <%= f.select :province_id, options_from_collection_for_select(Province.all, :id, :name),{ :prompt => 'Select Province' },{:class=>"form-control rounded-0"}%>
+
+                  <%else%>
+                  <%= f.select :province_id, options_from_collection_for_select(Province.all, :id, :name,:selected => current_customer.province_id),{},{:class=>"form-control rounded-0"}%>
+                  <%end%>
+                </div>
+
+             </div>
+          </div>
+        <div class="col-sm  pt-5">
+            <div  style="width:250px; margin:auto;padding-top:80px;">
+                <h6>UPDATE MY ACCOUNT</h6>
+                <div class="form-group row">
+                  <%= f.label :email, class:"small" %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control rounded-0"%>
+                </div>
+
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div class="small">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
+
+                <div class="form-group row">
+                  <%= f.label :password,class:"small" %> <i class="small">(leave blank if you don't want to change it)</i><br />
+                  <%= f.password_field :password, autocomplete: "new-password",class:"form-control rounded-0" %>
+                  <% if @minimum_password_length %>
+                    <em class="small"><%= @minimum_password_length %> characters minimum</em>
+                  <% end %>
+                </div>
+
+                <div class="form-group row">
+                  <%= f.label :password_confirmation ,class:"small"%><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control rounded-0" %>
+                </div>
+
+                <div class="form-group row">
+                  <%= f.label :current_password,class:"small"%> <i class="small">(we need your current password to confirm your changes)</i><br />
+                  <%= f.password_field :current_password, autocomplete: "current-password",class:"form-control rounded-0" %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+      <div class=" row" style="width:300px; margin:auto;">
+        <%= f.submit "UPDATE",class:"btn logon_bg text-white rounded-0", style:"width:300px;" %>
+      </div>
+       <% end %>
+</div>
+
+<%#
+   <p>UNHAPPY ?<%= button_to "CANCEL MY ACCOUNT ?", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , :class => 'btn bg-white rounded-0',:style=>"width:250px;color:pink;"%>
